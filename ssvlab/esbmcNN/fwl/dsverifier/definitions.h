@@ -196,7 +196,8 @@ double min;
 #define MAX_DSORDER 50
 
 /* digital system in transfer function structure */
-typedef struct {
+typedef struct
+{
   double a[MAX_DSORDER];
   int a_size;
   double b[MAX_DSORDER];
@@ -207,7 +208,8 @@ typedef struct {
 } digital_system;
 
 /** digital system in space state structure */
-typedef struct {
+typedef struct
+{
   double A[LIMIT][LIMIT];
   double B[LIMIT][LIMIT];
   double C[LIMIT][LIMIT];
@@ -227,7 +229,8 @@ typedef struct {
 } digital_system_state_space;
 
 /** implementation structure */
-typedef struct {
+typedef struct
+{
   int int_bits;
   int frac_bits;
   double max;
@@ -239,7 +242,8 @@ typedef struct {
 } implementation;
 
 /** assembly structure */
-typedef struct {
+typedef struct
+{
   int push;
   int in;
   int sbiw;
@@ -271,7 +275,8 @@ typedef struct {
 } instructions;
 
 /** hardware structure */
-typedef struct {
+typedef struct
+{
   long clock;
   int device;
   double cycle;
@@ -279,7 +284,8 @@ typedef struct {
 } hardware;
 
 /** filter parameters structure */
-typedef struct {
+typedef struct
+{
   double Ap, Ar, Ac;
   double wp, wc, wr;
   double w1p, w1c, w1r;

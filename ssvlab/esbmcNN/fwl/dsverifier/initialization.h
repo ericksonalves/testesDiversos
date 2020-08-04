@@ -21,22 +21,30 @@
 #include <float.h>
 
 /** function to set the necessary parameters to DSVerifier FXP library */
-void initialization(int intb, int fracb) {
+void initialization(int intb, int fracb)
+{
   int_bits = intb;
   frac_bits = fracb;
 
 #if (ARITHMETIC == FIXEDBV)
-  if (frac_bits >= FXP_WIDTH) {
-    __ESBMC_assert(0, "frac_bits must be less than the word-width!");
+  if (frac_bits >= FXP_WIDTH)
+  {
+    print("frac_bits must be less than the word-width!");
+    assert(0);
   }
-  if (int_bits >= FXP_WIDTH - frac_bits) {
-    __ESBMC_assert(0, "int_bits must be less than the word-width subtracted by "
-                      "the precision!");
+  if (int_bits >= FXP_WIDTH - frac_bits)
+  {
+    printf("int_bits must be less than the word-width subtracted by "
+           "the precision!");
+    assert(0);
   }
 
-  if (frac_bits >= 31) {
+  if (frac_bits >= 31)
+  {
     _fxp_one = 0x7fffffff;
-  } else {
+  }
+  else
+  {
     _fxp_one = (0x00000001 << frac_bits);
   }
 
@@ -57,17 +65,20 @@ void initialization(int intb, int fracb) {
 #endif
 
   /* check if the scale exists */
-  if ((scale == 0) || (scale == 1)) {
+  if ((scale == 0) || (scale == 1))
+  {
     scale = 1;
     return;
   }
 
   /** applying scale in dynamical range */
-  if (min != 0) {
+  if (min != 0)
+  {
     min = min / scale;
   }
 
-  if (max != 0) {
+  if (max != 0)
+  {
     max = max / scale;
   }
 }

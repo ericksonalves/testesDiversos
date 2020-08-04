@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "dsverifier/initialization.h"
 
 //gcc -o main esbmcnn.c
 #define arraySize(x) (int)(sizeof(x) / sizeof((x)[0]))
