@@ -29,7 +29,7 @@ void initialization(int intb, int fracb)
 #if (ARITHMETIC == FIXEDBV)
   if (frac_bits >= FXP_WIDTH)
   {
-    print("frac_bits must be less than the word-width!");
+    printf("frac_bits must be less than the word-width!");
     assert(0);
   }
   if (int_bits >= FXP_WIDTH - frac_bits)
